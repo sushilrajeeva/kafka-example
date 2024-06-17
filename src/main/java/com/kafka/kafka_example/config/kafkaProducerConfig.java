@@ -17,14 +17,14 @@ public class kafkaProducerConfig {
 
     // Injecting the Kafka bootstrap servers from the application properties
     @Value("${spring.kafka.bootstrap-servers}")
-    private String bootstrapService;
+    private String bootstrapServers;
 
     // Method to configure the producer properties
     public Map<String, Object> producerConfig(){
         // Creating a map to hold the producer configurations
         Map<String, Object> props = new HashMap<>();
         // Setting the bootstrap servers for the Kafka producer
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapService);
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         // Setting the key serializer class to StringSerializer
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         // Setting the value serializer class to StringSerializer
