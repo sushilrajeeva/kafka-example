@@ -17,7 +17,7 @@ public class KafkaApplication {
     CommandLineRunner commandLineRunner(KafkaTemplate<String, String> kafkaTemplate) {
         return args -> {
 			// Running it 10 million time
-            for (int i = 0; i < 10000000; i++) {
+            for (int i = 0; i < 2; i++) {
                 kafkaTemplate.send("kafkaExample", "hello kafka :) " + i);
                 // try {
                 //     Thread.sleep(1000); // Pause for 1 second
