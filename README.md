@@ -25,4 +25,62 @@ This project demonstrates how to integrate Apache Kafka with Spring Boot to send
 ```bash
 git clone https://github.com/your-username/kafka-messaging-spring-boot.git
 cd kafka-messaging-spring-boot
+```
+### Step 2: Start Zookeeper
 
+Download and extract Zookeeper from the official website. Then start Zookeeper:
+```bash
+bin/zookeeper-server-start.sh config/zookeeper.properties
+```
+
+### Step 3: Start Kafka Server
+
+Download and extract Kafka from the official website. Then start the Kafka server:
+```bash
+bin/kafka-server-start.sh config/server.properties
+```
+
+### Step 4: Configure Application
+Ensure you have the following properties set in your application.properties file:
+
+```properties
+spring.application.name=kafka-example
+spring.kafka.bootstrap-servers=localhost:9092
+```
+
+### Step 5: Build and Run the Application
+Use Maven to build and run the Spring Boot application:
+
+```bash
+mvn clean install
+mvn spring-boot:run
+```
+
+## Usage
+### Sending Messages via REST API
+
+You can send messages to the Kafka server using the provided REST API. Use the following endpoint to send messages:
+
+```bash
+POST /api/v1/kafka/send
+```
+
+### Request Body
+
+```json
+{
+  "message": "Your message here"
+}
+```
+
+### Consuming Messages
+Messages sent to the Kafka topic can be consumed using the Kafka consumer configured in the application. The consumer will log the received messages to the console.
+
+
+### License
+This project is licensed under the MIT License.
+
+### End
+If you have tried my application and liked how it worked!, then please follow and start the project :) 
+
+Happy Coding! :)
